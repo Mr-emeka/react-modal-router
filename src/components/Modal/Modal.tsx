@@ -4,52 +4,15 @@ import {
   ModalBackdrop,
   ModalContent,
   ModalDialog,
-  ModalContentHeader,
-  ModalContentBody,
-  ModalContentFooter,
   ModalProps,
 } from "./ModalStyle";
 
-const Modal: FC<ModalProps> = ({
-  onClose,
-  showHeader = true,
-  showFooter = true,
-  contentClassName,
-  headerClassName,
-  bodyClassName,
-  footerClassName,
-}) => {
+const Modal: FC<ModalProps> = ({ contentClassName, children, position }) => {
   const modal = (
-    <ModalBackdrop>
-      <ModalContent>
-        <ModalDialog className={contentClassName}>
-          {showHeader && (
-            <ModalContentHeader className={headerClassName}>
-              <span className="header-text">Header</span>
-              <div style={{ cursor: "pointer" }} onClick={onClose}>
-                X
-              </div>
-            </ModalContentHeader>
-          )}
-          <ModalContentBody className={bodyClassName}>
-            <div>body and some other stuff</div>
-            <img src="https://picsum.photos/seed/picsum/200/300" />
-            {/* <div>body and some other stuff</div>
-            <img src="https://picsum.photos/seed/picsum/200/300" />{" "}
-            <div>body and some other stuff</div>
-            <img src="https://picsum.photos/seed/picsum/200/300" />{" "}
-            <div>body and some other stuff</div>
-            <img src="https://picsum.photos/seed/picsum/200/300" />{" "}
-            <div>body and some other stuff</div>
-            <img src="https://picsum.photos/seed/picsum/200/300" />{" "}
-            <div>body and some other stuff</div>
-            <img src="https://picsum.photos/seed/picsum/200/300" /> */}
-          </ModalContentBody>
-          {showFooter && (
-            <ModalContentFooter className={footerClassName}>
-              <div>some footer content </div>
-            </ModalContentFooter>
-          )}
+    <ModalBackdrop position={position}>
+      <ModalContent position={position}>
+        <ModalDialog className={contentClassName} position={position}>
+          {children}
         </ModalDialog>
       </ModalContent>
     </ModalBackdrop>

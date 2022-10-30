@@ -1,12 +1,12 @@
 import React from "react";
 import GlobalStyle from "./styles/globalStyle";
-import OpenModal from "./components/OpenModal/OpenModal";
+import UseCases from "./components/useCases";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <OpenModal />
+      <UseCases />
     </>
   );
 }

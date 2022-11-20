@@ -22,6 +22,11 @@ const CenterModal = () => {
           <ModalContentBody>
             <div>body and some other stuff</div>
             <img src="https://picsum.photos/seed/picsum/200/300" />
+            <img src="https://picsum.photos/seed/picsum/200/300" />{" "}
+            <img src="https://picsum.photos/seed/picsum/200/300" />{" "}
+            <img src="https://picsum.photos/seed/picsum/200/300" />{" "}
+            <img src="https://picsum.photos/seed/picsum/200/300" />{" "}
+            <img src="https://picsum.photos/seed/picsum/200/300" />{" "}
           </ModalContentBody>
           <ModalContentFooter>
             <div>some footer content </div>

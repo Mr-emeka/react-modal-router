@@ -3,6 +3,7 @@ import CenterModal from "./CenterModal";
 import LeftModal from "./LeftModal";
 import NormalModal from "./NormalModal";
 import RightModal from "./RightModal";
+import FullScreenModal from "./FullScreen";
 
 const UseCases: FC = () => {
   return (
@@ -11,6 +12,7 @@ const UseCases: FC = () => {
       <CenterModal />
       <RightModal />
       <LeftModal />
+      <FullScreenModal />
     </>
   );
 };

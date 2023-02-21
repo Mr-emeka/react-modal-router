@@ -1,22 +1,23 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
+import { device } from "../../helpers/breakpoints";
 
 export interface ModalProps {
   contentClassName?: string;
   children: ReactNode;
-  position?: "right" | "centered" | "left";
+  position?: "right" | "centered" | "left" | "fullscreen";
 }
 
 export interface ModalBackdropProps {
-  position?: "right" | "centered" | "left";
+  position?: "right" | "centered" | "left" | "fullscreen";
 }
 
 export interface ModalContentProps {
-  position?: "right" | "centered" | "left";
+  position?: "right" | "centered" | "left" | "fullscreen";
 }
 
 export interface ModalDialogProps {
-  position?: "right" | "centered" | "left";
+  position?: "right" | "centered" | "left" | "fullscreen";
 }
 
 export const ModalBackdrop = styled.div<ModalBackdropProps>`
@@ -32,7 +33,13 @@ export const ModalBackdrop = styled.div<ModalBackdropProps>`
   backdrop-filter: blur(1rem);
   overflow: auto;
   padding: ${({ position }) =>
-    position === "right" || position === "left" ? "0" : "30px 0"}; ;
+    position === "right" || position === "left" || position === "fullscreen"
+      ? "0"
+      : "30px 0"};
+
+  @media ${device.mobileL} {
+    padding: 0;
+  }
 `;
 
 export const ModalContent = styled.div<ModalContentProps>`
@@ -43,17 +50,30 @@ export const ModalContent = styled.div<ModalContentProps>`
 `;
 
 export const ModalDialog = styled.div<ModalDialogProps>`
+  display: flex;
+  flex-direction: column;
   background: #ffffff;
   border-radius: ${({ position }) =>
-    position === "right" || position === "left" ? "0" : "8px"};
+    position === "right" || position === "left" || position === "fullscreen"
+      ? "0"
+      : "8px"};
   position: relative;
   min-width: 25.75rem;
-  max-width: 30.75rem;
+  max-width: ${({ position }) =>
+    position === "fullscreen" ? "100%" : "30.75rem"};
   cursor: default;
   margin-left: ${({ position }) => (position === "left" ? "initial" : "auto")};
   margin-right: ${({ position }) =>
     position === "right" ? "initial" : "auto"};
   padding: 20px;
   min-height: ${({ position }) =>
-    position === "right" || position === "left" ? "100%" : "auto"};
+    position === "right" || position === "left" || position === "fullscreen"
+      ? "100%"
+      : "auto"};
+
+  @media ${device.mobileL} {
+    border-radius: 0;
+    min-width: auto;
+    max-width: 100%;
+  }
 `;

@@ -6,25 +6,27 @@ import {
   ModalContentFooter,
 } from "../Modal";
 
-const NormalModal = () => {
+const FullScreenModal = () => {
   const [showModal, toggleModal] = useState(false);
 
   return (
     <>
-      <button onClick={() => toggleModal(!showModal)}>Open Normal Modal</button>
+      <button onClick={() => toggleModal(!showModal)}>
+        Open fullscreen Modal
+      </button>
 
       {showModal && (
-        <Modal>
+        <Modal position="fullscreen">
           <ModalContentHeader
             headerText="ModalHeader"
             onClose={() => toggleModal(false)}
           />
           <ModalContentBody>
             <div>body and some other stuff</div>
-            <img src="https://picsum.photos/seed/picsum/200/300" />{" "}
+            <img src="https://picsum.photos/seed/picsum/200/300" />
           </ModalContentBody>
           <ModalContentFooter>
-            <div>some footer content </div>
+            <div>some footer content</div>
           </ModalContentFooter>
         </Modal>
       )}
@@ -32,4 +34,4 @@ const NormalModal = () => {
   );
 };
 
-export default NormalModal;
+export default FullScreenModal;

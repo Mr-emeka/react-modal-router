@@ -8,5 +8,6 @@ export interface ModalContentFooterProps {
 
 export const ModalContentFooterStyle = styled.div`
   border-top: 1px solid #eeeeee;
+  margin-top: auto;
   padding-top: 15px;
 `;
